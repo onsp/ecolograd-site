@@ -1,0 +1,530 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+
+media_folder: "static/images" # Folder where user uploaded files should go
+public_folder: "/images"
+
+
+collections: # A list of collections the CMS should be able to edit
+################## Homepage Collection #######################
+  - name: "homepage" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Homepage" # Used in the UI, ie.: "New Post"
+    description: >
+      Редактирование Главной страницы.
+    delete: false # Prevent users from deleting documents in this collection
+    media_folder: "/{{media_folder}}"
+    public_folder: "{{public_folder}}"
+    files: 
+      - label: "Homepage Blocks"
+        name: "homepage_data"
+        file: "data/homepage.yml"
+        description: "Homepage blocks"
+        fields:
+############################ banner ##########################
+          - label: "Banner"
+            name: "banner"
+            widget: "object"
+            allow_add: false
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide banner", default: true  }
+              - { label: "Title", name: "title", widget: "string"  }
+              - { label: "Intro", name: "content", widget: "text"  }
+              - { label: "Photo", name: "image", widget: "image"  }
+
+              - label: "Button"
+                name: "button"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide button", default: true  }
+                  - { label: "Label", name: "label", widget: "string"  }
+                  - { label: "Link", name: "link", widget: "string"  }
+
+              - label: "Demo Video"
+                name: "video"
+                widget: "object" 
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide demo video", default: true  }
+                  - { label: "Video URL", name: "videoURL", widget: "string"  }
+
+########################## About ##############################
+          - label: "About"
+            name: "about"
+            widget: "object"
+            allow_add: false
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide about info", default: true  }
+              - { label: "Title", name: "title", widget: "string"  }
+              - { label: "Intro", name: "content", widget: "text"  }
+              - { label: "Photo", name: "image", widget: "image"  }
+
+###################### Call to action ########################
+          - label: "Call to action"
+            name: "cta"
+            widget: "object"
+            allow_add: false
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide call to action", default: true  }
+              - { label: "Title", name: "title", widget: "string"  }
+              - { label: "Intro", name: "content", widget: "text"  }
+              - { label: "Photo", name: "image", widget: "image"  }
+              - { label: "Overlay", name: "overlayImage", widget: "image"  }
+
+              - label: "Button"
+                name: "button"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string"  }
+                  - { label: "Link", name: "link", widget: "string"  }
+
+######################## raw material #######################
+          - label: "Raw material"
+            name: "material"
+            widget: "object"
+            allow_add: false
+            media_folder: "/{{media_folder}}/material"
+            public_folder: "{{public_folder}}/material"
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide materials", default: true  }
+              - { label: "Title", name: "title", widget: "string"  }
+              - { label: "Intro", name: "subtitle", widget: "text"  }
+
+              - label: "Material Item"
+                name: "materialItem"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string"  }
+                  - { label: "Photo", name: "image", widget: "image"  }
+                  - { label: "Intro", name: "content", widget: "text"  }
+                    
+########################### Advantage #########################
+          - label: "Advantage"
+            name: "advantage"
+            widget: "object"
+            allow_add: false
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide advantage", default: true  }
+              - { label: "Title", name: "title", widget: "string"  }
+              - { label: "Intro", name: "subtitle", widget: "text"  }
+              - { label: "Photo", name: "image", widget: "image"  }
+
+              - label: "Advantage List"
+                name: "advantageList"
+                widget: "list"
+                fields:
+                  - { label: "Advantage Item", name: "listItem", widget: "string"  }
+
+######################## Promo Video ##########################
+          - label: "Promo Video"
+            name: "video"
+            widget: "object"
+            allow_add: false
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide Promo Video", default: true  }
+              - { label: "Title", name: "title", widget: "string"  }
+              - { label: "Intro", name: "content", widget: "text"  }
+              - { label: "Video Thumb", name: "videoThumb", widget: "image"  }
+              - { label: "Video URL", name: "videoURL", widget: "string"  }
+
+######################## Products #############################
+          - label: "Products"
+            name: "products"
+            widget: "object"
+            allow_add: false
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide Products", default: true  }
+              - { label: "Title", name: "title", widget: "string"  }
+
+########################## Testimonial ########################
+          - label: "Testimonial"
+            name: "testimonial"
+            widget: "object"
+            allow_add: false
+            media_folder: "/{{media_folder}}/clients"
+            public_folder: "{{public_folder}}/clients"
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide Testimonial", default: true  }
+              - { label: "Title", name: "title", widget: "string"  }
+
+              - label: "Testimonial Item"
+                name: "testimonialItem"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string"  }
+                  - { label: "Photo", name: "image", widget: "image", hint: "size 100x100 px"  }
+                  - { label: "Designation", name: "designation", widget: "string"  }
+                  - { label: "Intro", name: "content", widget: "text"  }
+                  - { label: "Rating", name: "rating", widget: "string", hint: "rating star, one to five"  }
+
+
+################### Products Collection ######################
+  - name: "products" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Products" # Used in the UI, ie.: "New Post"
+    label_singular: "Product" # Used in the UI, ie: "New Post"
+    description: >
+      Добавление и редактирование в разделе Продукция.
+    folder: "content/products" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "cmsedit", value: true}
+    slug: "{{year}}-{{month}}-{{day}}-{{fname}}" # Name of post file in folder
+    media_folder: "/{{media_folder}}/products"
+    public_folder: "{{public_folder}}/products"
+    fields: # The fields each document in this collection have
+      - { label: "File name", name: "fname", widget: "string"  }
+      - { label: "CMSedit", name: "cmsedit", widget: "hidden", default: true  }
+      - { label: "Title", name: "title", widget: "string"  }
+      - { label: "Publish Date", name: "date", widget: "datetime"  }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+      - { label: "Description", name: "description", widget: "text"  }
+      - { label: "Price", name: "price", widget: "string", required: false  }
+      - { label: "PriceBefore", name: "priceBefore", widget: "string", required: false  }
+      - { label: "ShortDescription", name: "shortDescription", widget: "text"  }
+      - { label: "ProductID", name: "productID", widget: "number", value_type: "int"  }
+      - { label: "Type", name: "type", widget: "hidden", default: "products"  }
+      - label: "Cover Photos"
+        name: "images"
+        widget: "list"
+        fields: 
+          - {label: "Image", name: "image", widget: "image"}
+      - { label: "Body", name: "body", widget: "markdown"  }
+
+
+################### Purchase Collection ######################
+  - name: "purchase" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Purchase" # Used in the UI, ie.: "New Post"
+    label_singular: "Material" # Used in the UI, ie: "New Post"
+    description: >
+      Добавление и редактирование в разделе Закупаем.
+    folder: "content/purchase" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "cmsedit", value: true}
+    slug: "{{year}}-{{month}}-{{day}}-{{fname}}" # Name of post file in folder
+    media_folder: "/{{media_folder}}/purchase"
+    public_folder: "{{public_folder}}/purchase"
+    fields: # The fields each document in this collection have
+      - { label: "File name", name: "fname", widget: "string"  }
+      - { label: "CMSedit", name: "cmsedit", widget: "hidden", default: true  }
+      - { label: "Title", name: "title", widget: "string"  }
+      - { label: "Publish Date", name: "date", widget: "datetime"  }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+      - { label: "Description", name: "description", widget: "text"  }
+      - { label: "Price", name: "price", widget: "string", required: false  }
+      - { label: "PriceBefore", name: "priceBefore", widget: "string", required: false  }
+      - { label: "ShortDescription", name: "shortDescription", widget: "text"  }
+      - { label: "MaterialID", name: "materialID", widget: "number", value_type: "int"  }
+      - { label: "Type", name: "type", widget: "hidden", default: "purchase"  }
+      - label: "Cover Photos"
+        name: "images"
+        widget: "list"
+        fields: 
+          - {label: "Image", name: "image", widget: "image"}
+      - { label: "Body", name: "body", widget: "markdown"  }
+
+
+###################### Posts Collection ######################
+  - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Posts" # Used in the UI, ie.: "New Post"
+    label_singular: "Post" # Used in the UI, ie: "New Post"
+    description: >
+      Добавление и редактирование в разделе Статьи.
+    folder: "content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "cmsedit", value: true}
+    slug: "{{year}}-{{month}}-{{day}}-{{fname}}" # Name of post file in folder
+    media_folder: "/{{media_folder}}/blog"
+    public_folder: "{{public_folder}}/blog"
+    fields: # The fields each document in this collection have
+      - { label: "File name", name: "fname", widget: "string"  }
+      - { label: "CMSedit", name: "cmsedit", widget: "hidden", default: true  }
+      - { label: "Title", name: "title", widget: "string"  }
+      - { label: "Publish Date", name: "date", widget: "datetime"  }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+      - { label: "Description", name: "description", widget: "text"  }
+      - { label: "Photo", name: "image", widget: "image"  }
+      - { label: "Author", name: "author", widget: "string"  }
+      - { label: "Body", name: "body", widget: "markdown"  }
+
+
+######################## FAQ Collection ######################
+  - name: "faq" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "FAQ" # Used in the UI, ie.: "New Post"
+    description: >
+      Добавление и редактирование в разделе Вопрос-Ответ.
+    delete: false # Prevent users from deleting documents in this collection
+    files: 
+      - label: "FAQ page title and Intro"
+        name: "faq_indx_pg"
+        file: "content/faq/_index.md"
+        description: "Title and intro of FAQ"
+        fields:
+          - { label: "Title", name: "title", widget: "string"  }
+          - { label: "Publish Date", name: "date", widget: "datetime"  }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+          - { label: "Description", name: "description", widget: "text"  }
+          - { label: "Body", name: "body", widget: "markdown"  }
+
+      - label: "FAQ Items"
+        name: "faq_data"
+        file: "data/faq.yml"
+        description: "List of FAQ items"
+        fields:
+          - label: "FAQ Data"
+            name: "faqItem"
+            widget: "list"
+            fields: 
+              - { label: "Question", name: "title", widget: "text"  }
+              - { label: "Answer", name: "content", widget: "text"  }
+
+
+################### Contacts Collection ######################
+  - name: "contacts" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Contacts" # Used in the UI, ie.: "New Post"
+    description: >
+      Редактирование в разделе Контакты.
+    delete: false # Prevent users from deleting documents in this collection
+    files: 
+      - label: "Conact page title"
+        name: "contact_indx_pg"
+        file: "content/contact/_index.md"
+        description: "Title of Contact page"
+        fields:
+          - { label: "Title", name: "title", widget: "string"  }
+          - { label: "Publish Date", name: "date", widget: "datetime"  }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+          - { label: "Description", name: "description", widget: "text"  }
+
+      - label: "Contact settings / Working time"
+        name: "contact_data"
+        file: "data/contact.yml"
+        description: "Contact settings and working time"
+        fields:
+          - label: "Contact settings"
+            name: "contact"
+            widget: "object"
+            allow_add: false
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide contacts", default: true  }
+
+              - label: "Office"
+                name: "office"
+                widget: "object"
+                fields:
+                  - { label: "Office Title", name: "title", widget: "string"  }
+                  - { label: "Office Intro", name: "content", widget: "text"  }
+
+              - label: "Open"
+                name: "opennigHour"
+                widget: "object" 
+                fields:
+                  - { label: "Intro", name: "title", widget: "string"  }
+                  - label: "Working Time"
+                    name: "dayTimeList"
+                    widget: "list" 
+                    allow_add: false
+                    fields: 
+                      - { label: "Day", name: "dayTime", widget: "string"  }
+
+          - label: "Map widget"
+            name: "map"
+            widget: "object"
+            allow_add: false
+            fields: 
+              - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide google map", default: true  }
+
+
+################# Requisites Collection ######################
+  - name: "requisites" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Requisites" # Used in the UI, ie.: "New Post"
+    description: >
+      Редактирование в разделе Реквизиты.
+    delete: false # Prevent users from deleting documents in this collection
+    files: 
+      - label: "Requisites page"
+        name: "requisites_indx_pg"
+        file: "content/requisites/_index.md"
+        description: "Requisites page contetnt"
+        fields:
+          - { label: "Title", name: "title", widget: "string"  }
+          - { label: "Publish Date", name: "date", widget: "datetime"  }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+          - { label: "Description", name: "description", widget: "text"  }
+          - { label: "Body", name: "body", widget: "markdown"  }
+
+
+################## Global Settings Collection ################
+  - name: "settings" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Global Settings" # Used in the UI, ie.: "New Post"
+    description: >
+      Редактирование Общих настроек сайта.
+    delete: false # Prevent users from deleting documents in this collection
+    files: 
+      - label: "Configuration"
+        name: "configToml"
+        file: "config.toml"
+        extension: "toml"
+        description: "Configuration parameters"
+        fields:
+#################### default configuration ###################
+          - { label: "Base URL", name: "baseURL", widget: "string"  }
+          - { label: "Language", name: "languageCode", widget: "string"  }
+          - { label: "Title", name: "title", widget: "string"  }
+          - { label: "Theme", name: "theme", widget: "string"  }
+          - { label: "Summary Length", name: "summaryLength", widget: "string"  }
+          - { label: "Paginate", name: "paginate", widget: "string"  }
+          - { label: "Disqus Short name", name: "disqusShortname", widget: "string"  }
+
+######################### navigation #########################
+          - name: "menu"
+            label: "Menu"
+            widget: "object"
+            fields:
+              - name: "main"
+                label: "Main"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string"  }
+                  - { label: "URL address", name: "URL", widget: "string"  }
+                  - { label: "Weight", name: "weight", widget: "number"  }
+
+  ############# footer menu #############
+              - name: "footer"
+                label: "Footer"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string"  }
+                  - { label: "URL address", name: "URL", widget: "string"  }
+                  - { label: "Weight", name: "weight", widget: "number"  }
+
+#################### default parameters ######################
+          - name: "params"
+            label: "Params"
+            widget: "object"
+            fields:
+              - { label: "Logo", name: "logo", widget: "image"  }
+              - { label: "Home", name: "home", widget: "string"  }
+              # Meta data
+              - { label: "Description", name: "description", widget: "string"  }
+              - { label: "Author", name: "author", widget: "string"  }
+              # google map
+              - { label: "Gmap API", name: "gmapAPI", widget: "string"  }
+              - { label: "Map Latitude", name: "mapLatitude", widget: "string"  }
+              - { label: "Map Longitude", name: "mapLongitude", widget: "string"  }
+              - { label: "Map Marker", name: "mapMarker", widget: "image"  }
+              # Google Analitycs
+              - { label: "Google Analitycs ID", name: "googleAnalitycsID", widget: "string", required: false  }
+              # Contact Information
+              - { label: "Mobile", name: "mobile", widget: "string"  }
+              - { label: "Email", name: "email", widget: "string"  }
+              - { label: "Location", name: "location", widget: "text"  }
+              # copyright
+              - { label: "Copyright", name: "copyright", widget: "markdown"  }
+              # Snipcart Credentials
+              - { label: "Enable shopping cart", name: "cartwidget", widget: "boolean", hint: "show/hide shopping cart", default: true  }
+              - { label: "Snipcart API Key", name: "snipcartApiKey", widget: "string"  }
+              - { label: "Currency Symbol", name: "currencySymbol", widget: "string"  }
+
+########################## Plugins ###########################
+              - name: "plugins"
+                label: "Plugins"
+                widget: "object"
+                fields:
+                  - name: "css"
+                    label: "CSS"
+                    widget: "list"
+                    fields:
+                      - { label: "Link", name: "link", widget: "string"  }
+                  - name: "js"
+                    label: "JS"
+                    widget: "list"
+                    fields:
+                      - { label: "Link", name: "link", widget: "string"  }
+
+                # Preloader
+              - name: "preloader"
+                label: "Preloader"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide preloader", default: true  }
+                  - { label: "Preloader Images", name: "preloader", widget: "string", hint: "use .png, .svg or .gif format", required: false  }
+
+                # Product Rating
+                # it works with https://rating-widget.com/ , you will get the ID and publicKey after creating your account there.
+              - name: "rating"
+                label: "Rating"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", hint: "show/hide preloader", default: true  }
+                  - { label: "Website ID", name: "websiteID", widget: "string"  }
+                  - { label: "Public Key", name: "publicKey", widget: "string"  }
+
+                # Social Site
+              - name: "social"
+                label: "Social"
+                widget: "list"
+                fields:
+                  - { label: "Icon", name: "icon", widget: "string"  }
+                  - { label: "Link", name: "link", widget: "string"  }
+
+                # Contact Form
+              - name: "contact"
+                label: "Contact"
+                widget: "object"
+                fields:
+                  - { label: "Form Action", name: "formAction", widget: "string", hint: "contact form works with formspree.io"  }
+
+########################## Indexes ###########################
+      - label: "Products page title"
+        name: "products_indx_pg"
+        file: "content/products/_index.md"
+        description: "Title of Products page"
+        fields:
+          - { label: "CMSedit", name: "cmsedit", widget: "hidden", default: false  }
+          - { label: "Title", name: "title", widget: "string"  }
+          - { label: "Publish Date", name: "date", widget: "datetime"  }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+          - { label: "Description", name: "description", widget: "text"  }
+
+      - label: "Purchase page title"
+        name: "purchase_indx_pg"
+        file: "content/purchase/_index.md"
+        description: "Title of Purchase page"
+        fields:
+          - { label: "CMSedit", name: "cmsedit", widget: "hidden", default: false  }
+          - { label: "Title", name: "title", widget: "string"  }
+          - { label: "Publish Date", name: "date", widget: "datetime"  }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+          - { label: "Description", name: "description", widget: "text"  }
+
+      - label: "Posts page title"
+        name: "blog_indx_pg"
+        file: "content/blog/_index.md"
+        description: "Title of Posts page"
+        fields:
+          - { label: "CMSedit", name: "cmsedit", widget: "hidden", default: false  }
+          - { label: "Title", name: "title", widget: "string"  }
+          - { label: "Publish Date", name: "date", widget: "datetime"  }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+          - { label: "Description", name: "description", widget: "text"  }
+
+      - label: "FAQ page title and Intro"
+        name: "faq_indx_pg"
+        file: "content/faq/_index.md"
+        description: "Title and intro of FAQ"
+        fields:
+          - { label: "Title", name: "title", widget: "string"  }
+          - { label: "Publish Date", name: "date", widget: "datetime"  }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+          - { label: "Description", name: "description", widget: "text"  }
+          - { label: "Body", name: "body", widget: "markdown"  }
+
+      - label: "Conact page title"
+        name: "contact_indx_pg"
+        file: "content/contact/_index.md"
+        description: "Title of Contact page"
+        fields:
+          - { label: "Title", name: "title", widget: "string"  }
+          - { label: "Publish Date", name: "date", widget: "datetime"  }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false  }
+          - { label: "Description", name: "description", widget: "text"  }
+

@@ -1,0 +1,17 @@
+contact:
+  enable: true
+  office:
+    title: Центральный офис
+    content: Наш главный офис расположен в Пушкинском районе Санкт-Петербурга
+  opennigHour:
+    title: Мы открыты
+    dayTimeList:
+      - dayTime: "Понедельник: 9:00 – 19:00"
+      - dayTime: "Вторник: 9:00 – 19:00"
+      - dayTime: "Среда: 9:00 – 19:00"
+      - dayTime: "Четверг: 9:00 – 19:00"
+      - dayTime: "Пятница: 9:00 – 19:00"
+      - dayTime: "Суббота: выходной"
+      - dayTime: "Воскресенье: выходной"
+map:
+  enable: true

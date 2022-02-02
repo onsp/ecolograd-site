@@ -1,0 +1,132 @@
+baseURL = "/"
+languageCode = "ru"
+title = "ecolograd.ru - приём пластика на переработку"
+theme = "hargo"
+summaryLength = "20"
+paginate = 10
+disqusShortname = "ecolograd"
+
+[menu]
+
+[[menu.main]]
+name = "Продукция"
+URL = "products"
+weight = 1
+
+[[menu.main]]
+name = "Закупаем"
+URL = "purchase"
+weight = 2
+
+[[menu.main]]
+name = "Статьи"
+URL = "blog"
+weight = 3
+
+[[menu.main]]
+name = "Вопрос-ответ"
+URL = "faq"
+weight = 4
+
+[[menu.main]]
+name = "Контакты"
+URL = "contact"
+weight = 5
+
+[[menu.footer]]
+name = "Продукция"
+URL = "products"
+weight = 1
+
+[[menu.footer]]
+name = "Закупаем"
+URL = "purchase"
+weight = 2
+
+[[menu.footer]]
+name = "Статьи"
+URL = "blog"
+weight = 3
+
+[[menu.footer]]
+name = "Вопрос-ответ"
+URL = "faq"
+weight = 4
+
+[[menu.footer]]
+name = "Реквизиты"
+URL = "requisites"
+weight = 5
+
+[[menu.footer]]
+name = "Контакты"
+URL = "contact"
+weight = 6
+
+[params]
+mobile = "+7 812 385 81 83"
+cartwidget = false
+gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
+snipcartApiKey = "M2E5YjA3NjMtYzRiYS00YzVjLWEyYWYtNDY5ZDI0OWZhYjg5"
+copyright = "| Copyright &copy; 2021 [AlfaPlast LLC](https://ecolograd.ru) All Rights Reserved | Design [@edyatl](https://github.com/edyatl) |"
+mapLatitude = "59.721453312121554"
+googleAnalitycsID = "297610910"
+currencySymbol = "₽"
+author = "@edyatl"
+logo = "images/logo.png"
+mapLongitude = "30.428555980500033"
+location = "Санкт-Петербург, г. Пушкин, Новодеревенская улица, дом 4, литер А, помещение 2-Н, офис 1"
+mapMarker = "images/marker.png"
+email = "info@ecolograd.ru"
+description = "Переработка полимерных материалов. Прием и вывоз пластика в СПб по высоким ценам."
+home = "Главная"
+
+[params.contact]
+formAction = "https://app.ecolograd.ru/feedback/create"
+
+[params.plugins]
+
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+
+[[params.plugins.css]]
+link = "plugins/slick/slick.css"
+
+[[params.plugins.css]]
+link = "plugins/themify-icons/themify-icons.css"
+
+[[params.plugins.css]]
+link = "plugins/fontawesome/css/all.min.css"
+
+[[params.plugins.js]]
+link = "plugins/jQuery/jquery.min.js"
+
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
+
+[[params.plugins.js]]
+link = "plugins/google-map/gmap.js"
+
+[[params.social]]
+icon = "ti-youtube"
+link = "https://youtube.com/channel/UCEaGbWvFRefgY-UO_YjXYVw"
+
+[[params.social]]
+icon = "ti-instagram"
+link = "https://www.instagram.com/ecolograd/"
+
+[[params.social]]
+icon = "fab fa-vk"
+link = "https://vk.com/ecolograd"
+
+[params.preloader]
+enable = true
+preloader = ""
+
+[params.rating]
+enable = false
+websiteID = "444334"
+publicKey = "811cf0927332bf51f2e12f84608594ac"
