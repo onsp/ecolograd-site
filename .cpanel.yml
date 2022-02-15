@@ -5,4 +5,4 @@ deployment:
     #- export DEPLOYPATH=/home/ecologra/alpha.ecolograd.ru
     - export DEPLOYPATH=/home/ecologra/public_html
     - /bin/rm -rf ${DEPLOYPATH}/*
-    - /bin/cp -r /home/ecologra/repositories/ecolograd/public/* $DEPLOYPATH
+    - /bin/cp -r /home/ecologra/repositories/ecolograd-site/public/* $DEPLOYPATH
