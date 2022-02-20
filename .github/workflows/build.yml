@@ -34,8 +34,8 @@ jobs:
           publish_dir: ./public
           destination_dir: ./public
           #   keep_files: true
-          user_name: edyatl
-          user_email: edyatl@yandex.ru
+          user_name: onsp
+          user_email: onspeed@ya.ru
           publish_branch: master
           commit_message: "Deploy: ${{ github.event.head_commit.message  }} [skip netlify]"
           #   cname: example.com
