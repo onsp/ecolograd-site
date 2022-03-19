@@ -10,7 +10,7 @@ shortDescription: ПНД листовой экструзионный
 productID: 16
 type: products
 images:
-  - image: /images/products/pnd_blue.png
+  - image: /images/products/pnd_listovoi2022crop.png
 ---
 ПНД листовой экструзионный
 
