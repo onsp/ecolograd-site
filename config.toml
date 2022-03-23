@@ -72,7 +72,7 @@ copyright = "| Copyright &copy; 2021 [AlfaPlast LLC](https://ecolograd.ru) All R
 mapLatitude = "59.721453312121554"
 googleAnalitycsID = "297610910"
 currencySymbol = "₽"
-author = ""
+author = "."
 logo = "images/logo.png"
 mapLongitude = "30.428555980500033"
 location = "Санкт-Петербург, г. Пушкин, Новодеревенская улица, дом 4, литер А, помещение 2-Н, офис 1"
@@ -113,10 +113,6 @@ link = "plugins/google-map/gmap.js"
 [[params.social]]
 icon = "ti-youtube"
 link = "https://youtube.com/channel/UCEaGbWvFRefgY-UO_YjXYVw"
-
-[[params.social]]
-icon = "ti-instagram"
-link = "https://www.instagram.com/ecolograd/"
 
 [[params.social]]
 icon = "fab fa-vk"
