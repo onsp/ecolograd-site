@@ -1,7 +1,7 @@
 ---
 fname: sk-pvc-banned
 cmsedit: true
-title: Южная Корея отказывается от ПВХ
+title: Южная Корея отказывается от цветного ПЭТ и ПВХ
 date: 2022-06-20T05:47:38.943Z
 draft: false
 description: Перевод статьи с сайта foodnavigator-asia.com
